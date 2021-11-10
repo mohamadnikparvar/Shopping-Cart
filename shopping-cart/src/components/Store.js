@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 // components
-import Product from '../shared/Product';
+import Product from './shared/Product';
 
 // context
 import { ProductsContext } from '../context/ProductContextProvider';

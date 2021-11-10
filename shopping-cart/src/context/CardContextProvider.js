@@ -37,7 +37,7 @@ const cardReducer = (state,action) =>{
 
         case "DECREASE":
             const indexD = state.selectedItems.findIndex(item => item.id === action.payload.id)
-            state.selectedItems[indexD]--;
+            state.selectedItems[indexD].quantity--;
             return {
                 ...state
             }
@@ -63,7 +63,7 @@ const cardReducer = (state,action) =>{
     }
 }
 
-export const cardContext = createContext()
+export const CardContext = createContext()
 
 const CardContextProvider = ({children}) => {
 
@@ -71,9 +71,9 @@ const CardContextProvider = ({children}) => {
 
     return (
         <div>
-            <cardContext.Provider value={{state,dispatch}}>
+            <CardContext.Provider value={{state,dispatch}}>
                 {children}
-            </cardContext.Provider>
+            </CardContext.Provider>
         </div>
     );
 };
