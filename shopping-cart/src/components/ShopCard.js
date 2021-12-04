@@ -5,15 +5,24 @@ import { Link } from 'react-router-dom';
 import Card from './shared/Card';
 
 // context
-import { CardContext } from '../context/CardContextProvider';
-import { useContext } from 'react';
+// import { CardContext } from '../context/CardContextProvider';
+// import { useContext } from 'react';
+
+// redux
+import { useSelector, useDispatch } from 'react-redux';
 
 // styles
 import styles from "./ShopCard.module.css"
 
+// Actions
+// also we can import actions from cartAction
+
 const ShopCard = () => {
 
-    const {state, dispatch} = useContext(CardContext)
+    // const {state, dispatch} = useContext(CardContext)
+
+    const state = useSelector(state => state.cartState)
+    const dispatch = useDispatch()
 
     return (
         <div className={styles.container}>

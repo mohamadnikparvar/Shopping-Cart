@@ -1,8 +1,11 @@
 import React from 'react';
-import { useContext } from 'react';
+// import { useContext } from 'react';
+
+// redux
+import { useDispatch } from 'react-redux';
 
 // context 
-import  { CardContext } from '../../context/CardContextProvider';
+// import  { CardContext } from '../../context/CardContextProvider';
 
 // functions
 import { shorten } from '../../helper/function';
@@ -16,7 +19,9 @@ import styles from "./Card.module.css"
 const Card = (props) => {
 
     const {image ,price ,quantity ,title} = props.data
-    const {dispatch} = useContext(CardContext)
+    // const {dispatch} = useContext(CardContext)
+
+    const dispatch = useDispatch()
 
     return (
         <div className={styles.container}>

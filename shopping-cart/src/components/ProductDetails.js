@@ -1,6 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ProductsContext } from '../context/ProductContextProvider';
+
+// import  { useContext } from 'react';
+// import { ProductsContext } from '../context/ProductContextProvider';
+
+// redux
+import { useSelector } from 'react-redux';
 
 // styles
 import styles from "./ProductDetails.module.css"
@@ -8,7 +13,9 @@ import styles from "./ProductDetails.module.css"
 const ProductDetails = (props) => {
 
     const id = props.match.params.id
-    const data =useContext(ProductsContext)
+    // const data =useContext(ProductsContext)
+    const data =useSelector(state => state.productsState.products)
+
     const product = data[id - 1]
     const{image, title, description, price, category} = product;
 

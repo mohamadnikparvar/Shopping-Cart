@@ -1,12 +1,15 @@
-import React , { useContext } from 'react';
+import React  from 'react';
+// import  { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+// redux
+import { useSelector,useDispatch } from 'react-redux';
 
 // functions
 import { shorten ,isInCard ,quantityCount } from '../../helper/function';
 
 // context:
-import { CardContext } from '../../context/CardContextProvider';
+// import { CardContext } from '../../context/CardContextProvider';
 
 // Icons
 import trashIcon from "../../assets/icons/trash.svg"
@@ -16,7 +19,9 @@ import styles from "./Product.module.css"
 
 const Product = ({productData}) => {
 
-    const {state,dispatch} = useContext(CardContext)
+    // const {state,dispatch} = useContext(CardContext)
+    const state = useSelector(state => state.cartState)
+    const dispatch = useDispatch()
 
     return (
         <div className={styles.container}>
